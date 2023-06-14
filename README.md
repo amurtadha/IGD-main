@@ -37,7 +37,6 @@ python main.py --dataset sst-2  --method train  --batch-size-generate 4 --n_step
       --mode=attack\
       --model_type=bert\
       --dataset_name=sst-2 
-      --dataset_path=datasets/sst-2/processed/ \
       --training_type=ours \
       --modify_ratio=0.3 \
       --do_lower_case=True \
