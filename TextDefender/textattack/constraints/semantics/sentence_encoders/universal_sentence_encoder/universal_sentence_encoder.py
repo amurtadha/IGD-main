@@ -16,11 +16,11 @@ class UniversalSentenceEncoder(SentenceEncoder):
 
     def __init__(self, threshold=0.8, large=False, metric="angular", **kwargs):
         super().__init__(threshold=threshold, metric=metric, **kwargs)
-        # if large:
-        #     tfhub_url = "https://tfhub.dev/google/universal-sentence-encoder-large/5"
-        # else:
-        #     tfhub_url = "https://tfhub.dev/google/universal-sentence-encoder/4"
-        tfhub_url = '/workspace/June/ADS/pkg/universal-sentence-encoder_4/'
+        if large:
+             tfhub_url = "https://tfhub.dev/google/universal-sentence-encoder-large/5"
+        else:
+             tfhub_url = "https://tfhub.dev/google/universal-sentence-encoder/4"
+        # tfhub_url = '/workspace/pkg/universal-sentence-encoder_4/'
 
 
         self.model = hub.load(tfhub_url)
