@@ -17,25 +17,26 @@ pip install -r requirements.txt
 ```
 # Training
 
-*  Go to scripts/         
-*  Run the following code to train RNT:
+*  Go to scripts/  and run the following code to train IGD:
 ```
 sh training.sh 0 sst-2
 ```
-* or directly use 
+* Or directly use 
 ```
-python main.py --dataset sst-2  --method train  --batch-size-generate 4 --n_steps_interpret 40 --num_epoch 10
+python main.py --dataset sst-2  --method train --plm roberta --batch-size-generate 4 --n_steps_interpret 40 --num_epoch 10 
 ```
 
 
 # Evaluation the robutness 
-
-*  Go to TextDefender\         
-*  Run the following code:
+* Go to scripts/ and run the following code:
+```
+sh attack.sh 0 sst-2
+```
+* Or directly go to TextDefender\  and run the following code:
 ```
   python main.py\
       --mode=attack\
-      --model_type=bert\
+      --model_type=roberta\
       --dataset_name=sst-2 
       --training_type=ours \
       --modify_ratio=0.3 \
@@ -48,3 +49,4 @@ python main.py --dataset sst-2  --method train  --batch-size-generate 4 --n_step
 - The params could be :
     - --dataset =\{sst-2, imdb\}
     - --attack_method ={textfooler, textbugger, bae}
+* The output will be saved in  TextDefender\log\
