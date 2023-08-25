@@ -34,14 +34,14 @@ class custom_dataset(Dataset):
             input_mask = np.asarray(input_mask, dtype='int64')
             segment_ids = np.asarray(segment_ids, dtype='int64')
 
-            data = {
+            tem = {
                 'text': text,
                 'input_ids': input_ids,
                 'segments_ids': segment_ids,
                 'input_mask': input_mask,
                 'label': labels[label]
             }
-            all_data.append(data)
+            all_data.append(tem)
             # if len(all_data)>1000:break
         self.data = all_data
 
@@ -115,7 +115,7 @@ class custom_dataset_pl(Dataset):
                             'segments_ids': segment_ids,
                             'input_mask': input_mask,
 
-                            'label': int(data_temp)
+                            'label': 0
                         }
                 all_data.append(data)
 
